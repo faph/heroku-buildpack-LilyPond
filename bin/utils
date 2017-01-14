@@ -74,7 +74,7 @@ start-build-in-dir() {
   echo "Start building in ${1}." | indent
   ORIG_BUILD_DIR=${BUILD_DIR}
   BUILD_DIR=${1}
-  mkdir /tmp/home
+  mkdir -p /tmp/home
   deep-mv "${HOME}" /tmp/home
   deep-mv "${ORIG_BUILD_DIR}" "${BUILD_DIR}"
   cd "${BUILD_DIR}"
