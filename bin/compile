@@ -7,7 +7,7 @@ CACHE_DIR=$2
 BIN_DIR=$(cd $(dirname $0); pwd)
 source $BIN_DIR/utils
 
-start-build-in-dir $HOME
+start-build-in-home
 
 mkdir -p $CACHE_DIR
 cd $CACHE_DIR
@@ -46,5 +46,5 @@ else
 	exit 1;
 fi
 
-end-build-in-dir
+finish-build-in-home
 echo "-----> Done installing LilyPond"
