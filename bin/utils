@@ -3,7 +3,7 @@ shopt -s extglob
 
 [ $(uname) == "Darwin" ] && SED_FLAG='-l' || SED_FLAG='-u'
 
-# Syntax sugar.
+# Indent output as per Heroku style guide.
 indent() {
   RE="s/^/       /"
   sed $SED_FLAG "$RE"
@@ -13,7 +13,6 @@ indent() {
 function deep-cp (){
   find -H $1 -maxdepth 1 -name '.*' -a \( -type d -o -type f -o -type l \) -exec cp -a '{}' $2 \;
   cp -r $1/!(tmp) $2
-  # echo copying $1 to $2
 }
 
 # Does some serious moving.
@@ -40,7 +39,7 @@ start-build-in-home() {
   cd "${BUILD_DIR}"
 }
 
-# Restore build directory tweaks
+# Restore build directory tweaks.
 #
 # Moves home directory content back to Heroku's build directory (otherwise it
 # won't be packaged up) and move /tmp/home back to home directory. Use this 
