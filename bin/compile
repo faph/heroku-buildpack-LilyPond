@@ -36,7 +36,7 @@ fi
 
 echo "-----> Testing LilyPond"
 echo \\header{title = \"A scale in LilyPond\"} \\relative {c d e f g a b c} \\version \"2.18.2\" > blah.ly
-lilypond --png -o blahOutput blah.ly | indent
+lilypond --png -o blahOutput blah.ly 2>&1 | indent
 if [ -f $file1 ]
 then
 	echo "-----> Test passed"
